@@ -1,0 +1,409 @@
+.love-page {
+  --pink: #ff4f91;
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(180deg, rgba(7, 13, 45, 0.88) 0%, rgba(24, 13, 48, 0.82) 43%, rgba(5, 6, 31, 0.96) 100%);
+  color: #fff;
+  isolation: isolate;
+}
+
+.love-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(99, 116, 255, 0.13), transparent 24rem),
+    radial-gradient(circle at 20% 78%, rgba(196, 43, 116, 0.12), transparent 28rem);
+}
+
+.nebula {
+  position: absolute;
+  z-index: -2;
+  width: min(74vw, 760px);
+  height: min(74vw, 760px);
+  bottom: -38%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(121, 24, 91, 0.18), rgba(23, 17, 58, 0.05) 58%, transparent 70%);
+  filter: blur(12px);
+}
+
+.stars,
+.stars span {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 7px 2px rgba(191, 207, 255, 0.55);
+  animation: twinkle ease-in-out infinite alternate;
+}
+
+.star:nth-child(5n) {
+  background: #ffd5e6;
+  box-shadow: 0 0 9px 2px rgba(255, 102, 161, 0.5);
+}
+
+.shooting-star {
+  position: absolute;
+  z-index: -1;
+  width: 130px;
+  height: 1px;
+  transform: rotate(-28deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9));
+  opacity: 0;
+  animation: shoot 8s ease-in infinite;
+}
+
+.shooting-star-one {
+  top: 23%;
+  left: 12%;
+}
+
+.shooting-star-two {
+  top: 58%;
+  right: 8%;
+  animation-delay: 4.2s;
+}
+
+.hero-card {
+  width: min(90vw, 680px);
+  min-height: 590px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.hero-card h1 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.2rem, 6vw, 4.1rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  text-shadow: 0 2px 18px rgba(255, 255, 255, 0.12);
+}
+
+.hero-card h1 span {
+  white-space: nowrap;
+}
+
+.eyebrow {
+  margin: 30px 0 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(0.75rem, 2vw, 0.98rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.heart-wrap {
+  position: relative;
+  width: min(90vw, 540px);
+  aspect-ratio: 1;
+}
+
+.heart-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: heartDrift 7s ease-in-out infinite;
+}
+
+.heart-glow {
+  position: absolute;
+  left: 50%;
+  top: 51%;
+  width: 58%;
+  height: 58%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 62, 142, 0.16), transparent 68%);
+  filter: blur(12px);
+}
+
+.heart-pixel {
+  position: absolute;
+  z-index: 2;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff2e79;
+  box-shadow:
+    0 0 5px #ff79ae,
+    0 0 11px rgba(255, 31, 115, 0.9);
+  animation: pixelPulse 2.6s ease-in-out infinite alternate;
+}
+
+.heart-pixel:nth-child(3n) {
+  background: #bd1d67;
+  box-shadow: 0 0 8px 2px rgba(235, 41, 126, 0.75);
+}
+
+.rose-heart {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  transform-origin: center;
+  animation: roseHeartTurn 28s linear infinite;
+}
+
+.rose-bloom {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 5px rgba(255, 83, 145, 0.8));
+  animation: roseShine 2.4s ease-in-out infinite alternate;
+}
+
+.orbit-track {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 51%;
+  width: 76%;
+  height: 77%;
+  border: 1px dotted rgba(255, 167, 208, 0.19);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  animation: orbitSpin 18s linear infinite;
+}
+
+.orbit-track-inner {
+  width: 89%;
+  height: 60%;
+  border-color: rgba(165, 187, 255, 0.13);
+  transform: translate(-50%, -50%) rotate(18deg);
+  animation: orbitSpinReverse 25s linear infinite;
+}
+
+.orbit-heart,
+.orbit-sparkle {
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  color: #ff8fbd;
+  font-size: 15px;
+  line-height: 1;
+  text-shadow: 0 0 9px #ff4d92, 0 0 18px rgba(255, 77, 146, 0.7);
+  transform: translateX(-50%);
+  animation: orbitTwinkle 1.8s ease-in-out infinite alternate;
+}
+
+.orbit-sparkle {
+  left: 22%;
+  top: auto;
+  bottom: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c6d6ff;
+  box-shadow: 0 0 10px 3px rgba(173, 195, 255, 0.72);
+}
+
+.orbit-track-inner .orbit-sparkle {
+  left: 78%;
+  bottom: auto;
+  top: -2px;
+}
+
+.music-button {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  top: 51%;
+  width: 96px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: #fff;
+  background: radial-gradient(circle at 35% 30%, #dc315f, #8d0d38 62%, #500423);
+  box-shadow:
+    0 0 0 7px rgba(255, 86, 149, 0.08),
+    0 0 24px 8px rgba(255, 50, 125, 0.38),
+    inset 0 2px 12px rgba(255, 255, 255, 0.12);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.music-button:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow:
+    0 0 0 9px rgba(255, 86, 149, 0.09),
+    0 0 32px 12px rgba(255, 50, 125, 0.48);
+}
+
+.music-button:focus-visible,
+.surprise-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 5px;
+}
+
+.music-status {
+  min-height: 1em;
+  margin: 8px 16px 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font: 0.72rem/1.5 Arial, Helvetica, sans-serif;
+}
+
+.music-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.center-heart {
+  color: #ffb1d1;
+  font-size: 39px;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(255, 115, 172, 0.8);
+  animation: coreBeat 2.1s ease-in-out infinite;
+}
+
+.music-note-indicator {
+  position: absolute;
+  right: -12px;
+  bottom: -7px;
+  color: #fff;
+  font-size: 18px;
+  text-shadow: 0 0 8px #ff4d92;
+}
+
+.surprise-button {
+  margin-top: -8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.055);
+  font: 700 0.72rem Arial, Helvetica, sans-serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: 180ms ease;
+}
+
+.surprise-button:hover {
+  color: #fff;
+  background: rgba(255, 83, 148, 0.14);
+  transform: translateY(-2px);
+}
+
+.hearts-up::after {
+  content: '♥  ♥  ♥';
+  position: absolute;
+  left: 50%;
+  bottom: 12%;
+  color: rgba(255, 91, 151, 0.8);
+  font-size: 22px;
+  letter-spacing: 20px;
+  animation: floatHearts 2.2s ease-out both;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.25; transform: scale(0.65); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pixelPulse {
+  from { opacity: 0.78; filter: brightness(0.85); }
+  to { opacity: 1; filter: brightness(1.25); }
+}
+
+@keyframes heartDrift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-1deg) scale(1); }
+  25% { transform: translate3d(8px, -7px, 0) rotate(1deg) scale(1.015); }
+  50% { transform: translate3d(0, -12px, 0) rotate(0deg) scale(1.025); }
+  75% { transform: translate3d(-8px, -5px, 0) rotate(-1deg) scale(1.01); }
+}
+
+@keyframes orbitSpin {
+  from { transform: translate(-50%, -50%) rotate(-12deg); }
+  to { transform: translate(-50%, -50%) rotate(348deg); }
+}
+
+@keyframes orbitSpinReverse {
+  from { transform: translate(-50%, -50%) rotate(18deg); }
+  to { transform: translate(-50%, -50%) rotate(-342deg); }
+}
+
+@keyframes orbitTwinkle {
+  from { opacity: 0.55; filter: brightness(0.8); }
+  to { opacity: 1; filter: brightness(1.35); }
+}
+
+@keyframes roseHeartTurn {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes roseShine {
+  from { opacity: 0.78; transform: translate(-50%, -50%) scale(0.92); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+}
+
+@keyframes coreBeat {
+  0%, 100% { transform: scale(0.96); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes shoot {
+  0%, 82% { opacity: 0; transform: translate(-30px, 20px) rotate(-28deg); }
+  84% { opacity: 1; }
+  92% { opacity: 0; transform: translate(180px, -120px) rotate(-28deg); }
+  100% { opacity: 0; }
+}
+
+@keyframes floatHearts {
+  0% { opacity: 0; transform: translate(-50%, 40px) scale(0.7); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -180px) scale(1.3); }
+}
+
+@media (max-width: 600px) {
+  .hero-card {
+    width: 100%;
+    min-height: 100svh;
+    justify-content: center;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .eyebrow {
+    margin-top: 24px;
+  }
+
+  .music-button {
+    width: 82px;
+    height: 82px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .heart-pixel,
+  .heart-art,
+  .rose-heart,
+  .rose-bloom,
+  .orbit-track,
+  .orbit-heart,
+  .orbit-sparkle,
+  .center-heart,
+  .shooting-star {
+    animation: none;
+  }
+}
